@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="style.css" rel="stylesheet">
+        <title>Portfolio Website</title>
+        <script src="https://kit.fontawesome.com/823184639d.js" crossorigin="anonymous"></script>
+        <!--<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=cpp;skin=sunburst"></script>-->
+    </head>
+    <style>div.center{
+        text-align: center;
+    }
+    </style>
+    <body>
+        <div id="header">
+            <div class="container">
+                <nav>
+                    <img src="images/name.png" class="logo">
+                    <ul id="sidemenu">
+                        <li><a href="#header">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <!--<li><a href="#services">Services</a></li>-->
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+                    </ul>
+                    <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+                </nav>
+                <div class="header-text">
+                    <p>Game Programmer/Developer</p>
+                    <h1>Hi, I'm <span>Saurav</span><br>Sharma. Welcome To<br>My Lair.</h1>
+                </div>
+            </div>
+        </div>
+        <!--about-->
+        <div id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="about-col-1">
+                        <img src="images/profileimage.jpg">
+                    </div>
+                    <div class="about-col-2">
+                        <h1 class="sub-title">About Me</h1>
+                        <p>I love video games. I've known them the majority of my life. I don't know where I'd be without them. But 
+                            despite the hours I've spent playing them and all the enjoyment I got from them, I never thought - "Hey, 
+                            why don't you just make games yourself? Then you could pass on that same feeling of excitement you got 
+                            from tapping heads for an ace on VALORANT to someone else". <br><br>Well, not too long ago that thought DID 
+                            cross my mind and it just clicked. From a passion for video games spawned a passion for MAKING video 
+                            games.<br><br>On the flip side, I like to go to the gym and listen to trap/metal style music like Scarlxrd
+                            (Often at the same time). If only I could combo them with gaming too...
+                        </p>
+
+                        <div class="tab-titles">
+                            <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                            <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                            <p class="tab-links" onclick="opentab('education')">Education</p>
+                        </div>
+                        <div class="tab-contents active-tab" id="skills">
+                            <ul>
+                                <li><span>Game Development</span><br>Programming game logic and mechanics using C++ and Unreal Engine 5</li>
+                                <li><span>UX/UI</span><br>Profficient at designing and implementing UX/UI using figma and Flutter/Dart 
+                                    for IOS and Andriod mobile applications</li>
+                                <li><span>Web Development</span><br>Web app development using HTML, CSS and Javascript</li>
+                            </ul>
+                        </div>
+                        <div class="tab-contents" id="experience">
+                            <ul>
+                                <li><span>2023 - current</span><br>Designing and implementing UI for start-up company, Bloqi</li>
+                                <li><span>2022 - 2023</span><br>Several 3D games created using UE5 and C++</li>
+                                <li><span>2021 - 2022</span><br>Digital Marketer at Abacus Wills and Trusts Global</li>
+                            </ul>
+                        </div>
+                        <div class="tab-contents" id="education">
+                            <ul>
+                                <li><span>2022</span><br>UE5 C++ Developer course from Udemy/Epic Games</li>
+                                <li><span>2022</span><br>CS50x Computer Science course from Harvard University </li>
+                                <li><span>2020</span><br>BEng from University of Portsmouth</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--services
+        <div id="services">
+            <div class="container">
+                <h1 class="sub-title">My Services</h1>
+                <div class="services-list">
+                    <div>
+                        <i class="fa-solid fa-cube"></i>
+                        <h2>Game Design</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ex dui, tempus a velit ut,
+                        porttitor egestas arcu.</p>
+                        <a href="#">Learn more</a>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-gamepad"></i>
+                        <h2>Game Dev</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ex dui, tempus a velit ut,
+                        porttitor egestas arcu.</p>
+                        <a href="#">Learn more</a>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-code"></i>
+                        <h2>Web Design</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ex dui, tempus a velit ut,
+                        porttitor egestas arcu.</p>
+                        <a href="#">Learn more</a>
+                    </div>
+                </div>
+            </div>
+        </div>  -->
+        <!--portfolio-->
+        <div id="portfolio">
+            <div class="container">
+                <h1 class="sub-title">My Work</h1>
+                <div class="work-list">
+                    <div class="work">
+                        <img src="images/BLOQI_onWhiteUpscaled.jpeg">
+                        <div class="layer">
+                            <h3>Bloqi</h3>
+                            <p>UI development of a social platform bringing a Twitter-like experience to the TikTok generation in university.</p>
+                            <a data-modal-target="#modal4"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <img src="images/shooterthumbnail.png">
+                        <div class="layer">
+                            <h3>Simple Shooter</h3>
+                            <p>Basic 3rd person shooter game developed to improve my skills in animation, AI enemies and movement.</p>
+                            <a data-modal-target="#modal"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <img src="images/crypt.png">
+                        <div class="layer">
+                            <h3>Crypt Raider</h3>
+                            <p>Puzzle game where the player must steal a valuable statue from a crypt and escape. Helped with my 
+                                modular level design and debugging skills as well as lighting with Lumen.
+                            </p>
+                            <a data-modal-target="#modal1"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <img src="images/ObstacleAssaultThumbnail.png">
+                        <div class="layer">
+                            <h3>Obstacle Assault</h3>
+                            <p>
+                                This 3rd person obstacle course is the first game I've created that introduced me to many of the 
+                                fundamentals in game development, level design and C++ game programming.
+                            </p>
+                            <a data-modal-target="#modal2"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <img src="images/ToonTanksThumbnail.png">
+                        <div class="layer">
+                            <h3>Toon Tanks</h3>
+                            <p>
+                                Tank shooter game that helped me bountifully in the C++ side of things when it comes to creating 
+                                games.
+                            </p>
+                            <a data-modal-target="#modal3"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!--<a href="#" class="btn">See More</a>-->
+            </div>
+        <!--portfolio popups-->
+        <div class="modal" class="active" id="modal4">
+            <div class="modal-header">
+                <div class="title">Bloqi</div>
+                <a data-close-button><i class="fa-solid fa-xmark"></i></a>
+            </div>
+            <div class="modal-body">
+                <div class="center">
+                    <video src="videos/Simple Shooter.mp4" autoplay controls></video>
+                </div>
+                <p>
+                    The video above shows how the app looks and functions in the way I designed it. I took the time to consider 
+                    the look and feel of each element, to make sure the user experience was a friendly experience. This is an 
+                    ongoing project, that I started designing in Figma, where I then implemented into Flutter/Dart code. I will 
+                    continue to perfect it, taking into account feedback at all times, and revising accordingly. Below is a sample 
+                    of code for the bloqi button.
+                </p>
+                <pre><code>
+                    void AShooterCharacter::BeginPlay()
+                    {
+                        Super::BeginPlay();
+                    
+                        Health = MaxHealth;
+                    
+                        Gun = GetWorld()->SpawnActor<AGun>(GunClass);
+                        GetMesh()->HideBoneByName(TEXT("weapon_r"), EPhysBodyOp::PBO_None);
+                        Gun->AttachToComponent(GetMesh(), 
+                        FAttachmentTransformRules::KeepRelativeTransform, TEXT("WeaponSocket"));
+                        Gun->SetOwner(this);
+                    }
+                    
+                    bool AShooterCharacter::IsDead() const
+                    {
+                        return Health <= 0;
+                    }
+                    
+                    float AShooterCharacter::GetHealthPercent() const
+                    {
+                        return Health / MaxHealth;
+                    }
+                    
+                    // Called every frame
+                    void AShooterCharacter::Tick(float DeltaTime)
+                    {
+                        Super::Tick(DeltaTime);
+                    
+                    }
+                    
+                    // Called to bind functionality to input
+                    void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
+                    {
+                        Super::SetupPlayerInputComponent(PlayerInputComponent);
+                    
+                        PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &AShooterCharacter::MoveForward);
+                        PlayerInputComponent->BindAxis(TEXT("LookUp"), this, &APawn::AddControllerPitchInput);
+                        PlayerInputComponent->BindAxis(TEXT("LookUpRate"), this, &AShooterCharacter::LookUpRate);
+                        PlayerInputComponent->BindAxis(TEXT("MoveRight"), this, &AShooterCharacter::MoveRight);
+                        PlayerInputComponent->BindAxis(TEXT("LookRight"), this, &APawn::AddControllerYawInput);
+                        PlayerInputComponent->BindAxis(TEXT("LookRightRate"), this, &AShooterCharacter::LookRightRate);
+                        PlayerInputComponent->BindAction(TEXT("Jump"),EInputEvent::IE_Pressed, this, &ACharacter::Jump);
+                        PlayerInputComponent->BindAction(TEXT("Shoot"),EInputEvent::IE_Pressed, this, 
+                        &AShooterCharacter::Shoot);
+                    }
+                    
+                    float AShooterCharacter::TakeDamage(float DamageAmount, struct FDamageEvent const &DamageEvent, 
+                    class AController *EventInstigator, AActor *DamageCauser)
+                    {
+                        float DamageToApply = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, 
+                        DamageCauser);
+                        DamageToApply = FMath::Min(Health, DamageToApply);
+                        Health -= DamageToApply;
+                        UE_LOG(LogTemp, Warning, TEXT("Health left %f"), Health);
+                        
+                        if (IsDead())
+                        {
+                            ASimpleShooterGameModeBase* GameMode = GetWorld()->GetAuthGameMode<ASimpleShooterGameModeBase>();
+                            if (GameMode != nullptr)
+                            {
+                                GameMode->PawnKilled(this);
+                            }
+                            DetachFromControllerPendingDestroy();
+                            GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+                            
+                            
+                        }
+                        return DamageToApply;
+                    }
+                    
+                    void AShooterCharacter::MoveForward(float AxisValue)
+                    {
+                        AddMovementInput(GetActorForwardVector() * AxisValue);
+                    }
+                    
+                    /*void AShooterCharacter::LookUp(float AxisValue)
+                    {
+                        AddControllerPitchInput(AxisValue);
+                    }*/
+                    
+                    void AShooterCharacter::MoveRight(float AxisValue)
+                    {
+                        AddMovementInput(GetActorRightVector() * AxisValue);
+                    }
+                    
+                    void AShooterCharacter::LookUpRate(float AxisValue)
+                    {
+                        AddControllerPitchInput(AxisValue * RotationRate * GetWorld()->GetDeltaSeconds());
+                    }
+                    
+                    void AShooterCharacter::LookRightRate(float AxisValue)
+                    {
+                        AddControllerYawInput(AxisValue * RotationRate * GetWorld()->GetDeltaSeconds());
+                    }
+                    
+                    void AShooterCharacter::Shoot()
+                    {
+                        Gun->PullTrigger();
+                    }</code></pre>
+            </div>
+        </div>
+        <div class="modal" class="active" id="modal">
+            <div class="modal-header">
+                <div class="title">Simple Shooter</div>
+                <a data-close-button><i class="fa-solid fa-xmark"></i></a>
+            </div>
+            <div class="modal-body">
+                <div class="center">
+                    <video src="videos/Simple Shooter.mp4" autoplay controls></video>
+                </div>
+                <img src="images/shooteranimscreenshot.png">
+                <p>
+                    The clip above shows a short shooter game where the objective is to kill all the enemies. Developing this game helped
+                    me better understand shooting mechanics, AI characters, player and character movement and animation. At first, I had 
+                    difficulty using the animation event graph (pictured above) and making the animations sync with the movement and 
+                    behave the way I wanted, but after some experimenting and research I fixed it and now it runs smoothly. Below is the 
+                    C++ "ShooterCharacter" class I used for movement, damage to health and aiming.
+                </p>
+                <pre><code>
+                    void AShooterCharacter::BeginPlay()
+                    {
+                        Super::BeginPlay();
+                    
+                        Health = MaxHealth;
+                    
+                        Gun = GetWorld()->SpawnActor<AGun>(GunClass);
+                        GetMesh()->HideBoneByName(TEXT("weapon_r"), EPhysBodyOp::PBO_None);
+                        Gun->AttachToComponent(GetMesh(), 
+                        FAttachmentTransformRules::KeepRelativeTransform, TEXT("WeaponSocket"));
+                        Gun->SetOwner(this);
+                    }
+                    
+                    bool AShooterCharacter::IsDead() const
+                    {
+                        return Health <= 0;
+                    }
+                    
+                    float AShooterCharacter::GetHealthPercent() const
+                    {
+                        return Health / MaxHealth;
+                    }
+                    
+                    // Called every frame
+                    void AShooterCharacter::Tick(float DeltaTime)
+                    {
+                        Super::Tick(DeltaTime);
+                    
+                    }
+                    
+                    // Called to bind functionality to input
+                    void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
+                    {
+                        Super::SetupPlayerInputComponent(PlayerInputComponent);
+                    
+                        PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &AShooterCharacter::MoveForward);
+                        PlayerInputComponent->BindAxis(TEXT("LookUp"), this, &APawn::AddControllerPitchInput);
+                        PlayerInputComponent->BindAxis(TEXT("LookUpRate"), this, &AShooterCharacter::LookUpRate);
+                        PlayerInputComponent->BindAxis(TEXT("MoveRight"), this, &AShooterCharacter::MoveRight);
+                        PlayerInputComponent->BindAxis(TEXT("LookRight"), this, &APawn::AddControllerYawInput);
+                        PlayerInputComponent->BindAxis(TEXT("LookRightRate"), this, &AShooterCharacter::LookRightRate);
+                        PlayerInputComponent->BindAction(TEXT("Jump"),EInputEvent::IE_Pressed, this, &ACharacter::Jump);
+                        PlayerInputComponent->BindAction(TEXT("Shoot"),EInputEvent::IE_Pressed, this, 
+                        &AShooterCharacter::Shoot);
+                    }
+                    
+                    float AShooterCharacter::TakeDamage(float DamageAmount, struct FDamageEvent const &DamageEvent, 
+                    class AController *EventInstigator, AActor *DamageCauser)
+                    {
+                        float DamageToApply = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, 
+                        DamageCauser);
+                        DamageToApply = FMath::Min(Health, DamageToApply);
+                        Health -= DamageToApply;
+                        UE_LOG(LogTemp, Warning, TEXT("Health left %f"), Health);
+                        
+                        if (IsDead())
+                        {
+                            ASimpleShooterGameModeBase* GameMode = GetWorld()->GetAuthGameMode<ASimpleShooterGameModeBase>();
+                            if (GameMode != nullptr)
+                            {
+                                GameMode->PawnKilled(this);
+                            }
+                            DetachFromControllerPendingDestroy();
+                            GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+                            
+                            
+                        }
+                        return DamageToApply;
+                    }
+                    
+                    void AShooterCharacter::MoveForward(float AxisValue)
+                    {
+                        AddMovementInput(GetActorForwardVector() * AxisValue);
+                    }
+                    
+                    /*void AShooterCharacter::LookUp(float AxisValue)
+                    {
+                        AddControllerPitchInput(AxisValue);
+                    }*/
+                    
+                    void AShooterCharacter::MoveRight(float AxisValue)
+                    {
+                        AddMovementInput(GetActorRightVector() * AxisValue);
+                    }
+                    
+                    void AShooterCharacter::LookUpRate(float AxisValue)
+                    {
+                        AddControllerPitchInput(AxisValue * RotationRate * GetWorld()->GetDeltaSeconds());
+                    }
+                    
+                    void AShooterCharacter::LookRightRate(float AxisValue)
+                    {
+                        AddControllerYawInput(AxisValue * RotationRate * GetWorld()->GetDeltaSeconds());
+                    }
+                    
+                    void AShooterCharacter::Shoot()
+                    {
+                        Gun->PullTrigger();
+                    }</code></pre>
+            </div>
+        </div>
+        <div class="modal" class="active" id="modal1">
+            <div class="modal-header">
+                <div class="title">Crypt Raider</div>
+                <a data-close-button><i class="fa-solid fa-xmark"></i></a>
+            </div>
+            <div class="modal-body">
+                <div class="center">
+                    <video src="videos/CryptRaider.mp4" autoplay controls></video>
+                </div>
+                <p>
+                    I created this game to improve my skills using modular level design. Using the asset pack 
+                    I designed a dungeon and crypt where the objective of the game is to venture into the dungeon
+                    and retreive a valuable statue. During the process of making this game I learnt how to use line
+                    tracing and collisions as well as debug tools such as a debug sphere(as seen in the video above).
+                    I came across an issue where the item grabbed and dropped into the secret wall wouldnt trigger 
+                    the wall to move down. I solved this by turning off physics to that particular item when it enters 
+                    a certain area and "sticks" to the bottom surface. Below is the code for the "Grabber" component, 
+                    where I used tags for when an item is grabbed and debug lines and spheres to see when something is 
+                    picked up and released and to show the grabbable distance.
+                </p>
+                <pre><code>
+                    void UGrabber::BeginPlay()
+                    {
+                        Super::BeginPlay();
+                    }
+
+
+                    // Called every frame
+                    void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, 
+                    FActorComponentTickFunction* ThisTickFunction)
+                    {
+                        Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+
+                        UPhysicsHandleComponent* PhysicsHandle = GetPhysicsHandle();
+
+                        if (PhysicsHandle && PhysicsHandle->GetGrabbedComponent())
+                        {
+                            FVector TargetLocation = GetComponentLocation() + GetForwardVector().GetSafeNormal() 
+                            * HoldDistance;
+                            PhysicsHandle->SetTargetLocationAndRotation(TargetLocation, GetComponentRotation());
+                        }
+                        
+                    }
+
+                    void UGrabber::Grab()
+                    {
+                        UPhysicsHandleComponent* PhysicsHandle = GetPhysicsHandle();
+                        if (PhysicsHandle == nullptr)
+                        {
+                            return;
+                        }
+
+                        FHitResult HitResult;
+                        bool HasHit = GetGrabbableInReach(HitResult);
+                        if (HasHit)
+                        {
+                            UPrimitiveComponent* HitComponent = HitResult.GetComponent();
+                            HitComponent->SetSimulatePhysics(true);
+                            HitComponent->WakeAllRigidBodies();
+                            AActor* HitActor = HitResult.GetActor();
+                            HitActor->Tags.Add("Grabbed");
+                            HitActor->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+                            PhysicsHandle->GrabComponentAtLocationWithRotation(
+                                HitComponent,
+                                NAME_None,
+                                HitResult.ImpactPoint,
+                                GetComponentRotation()
+                            );
+                        }
+                        
+                    }
+
+                    void UGrabber::Release()
+                    {
+                        UPhysicsHandleComponent* PhysicsHandle = GetPhysicsHandle();
+                        
+                        if (PhysicsHandle && PhysicsHandle->GetGrabbedComponent())
+                        {
+                            AActor* GrabbedActor = PhysicsHandle->GetGrabbedComponent()->GetOwner();
+                            GrabbedActor->Tags.Remove("Grabbed");
+                            PhysicsHandle->ReleaseComponent();
+                        }
+                    }
+                    UPhysicsHandleComponent* UGrabber::GetPhysicsHandle() const
+                    {
+                        UPhysicsHandleComponent* Result = GetOwner()->FindComponentByClass<UPhysicsHandleComponent>();
+                        if (Result == nullptr)
+                        {
+                            UE_LOG(LogTemp, Error, TEXT("Grabber requires a UPhysicsHandleComponent."));
+                        }
+                        return Result;
+                    }
+
+                    bool UGrabber::GetGrabbableInReach(FHitResult& OutHitResult) const
+                    {
+                        FVector Start = GetComponentLocation();
+                        FVector End = Start + GetForwardVector() * MaxGrabDistance;
+                        DrawDebugLine(GetWorld(), Start, End, FColor::Red);
+                        DrawDebugSphere(GetWorld(), End, 10, 10, FColor::Blue, false, 5);
+
+                        FCollisionShape Sphere = FCollisionShape::MakeSphere(GrabRadius);
+                        FHitResult HitResult;
+                        return GetWorld()->SweepSingleByChannel(OutHitResult, Start, End, FQuat::Identity, 
+                        ECC_GameTraceChannel2, Sphere);  
+                    }
+                </code></pre>
+            </div>
+        </div>
+        <div class="modal" class="active" id="modal2">
+            <div class="modal-header">
+                <div class="title">Obstacle Assault</div>
+                <a data-close-button><i class="fa-solid fa-xmark"></i></a>
+            </div>
+            <div class="modal-body">
+                <div class="center">
+                    <video src="videos/ObstacleAssault.mp4" autoplay controls></video>
+                </div>
+                <p>
+                    Here I learnt the basics of developing a game using blueprints and C++. I practiced functions, 
+                    variables, branches in C++ and creating C++ Actors. I also, learnt how to link Blueprint to C++. 
+                    Other than that I a lot of fun designing an obstacle course for my character in this game. Below is 
+                    the code for a moving platform.
+                </p>
+                <pre><code> 
+                    AMovingPlatform::BeginPlay()
+                    {
+                        Super::BeginPlay();
+                    
+                        StartLocation = GetActorLocation();
+                    
+                        FString Name = GetName();
+                    
+                        UE_LOG(LogTemp, Display, TEXT("BeginPlay: %s"), *Name); 
+                    
+                    }
+                    
+                    // Called every frame
+                    void AMovingPlatform::Tick(float DeltaTime)
+                    {
+                        Super::Tick(DeltaTime);
+                    
+                        MovePlatform(DeltaTime);
+                        RotatePlatform(DeltaTime);
+                    
+                    }
+                    
+                    void AMovingPlatform::MovePlatform(float DeltaTime)
+                    {
+                    
+                        if (ShouldPlatformReturn())
+                        {
+                            FVector MoveDirection = PlatformVelocity.GetSafeNormal();
+                            StartLocation = StartLocation + MoveDirection * MoveDistance;
+                            SetActorLocation(StartLocation);
+                            PlatformVelocity = -PlatformVelocity;
+                        }
+                        else
+                        {
+                            FVector CurrentLocation = GetActorLocation();
+                            CurrentLocation = CurrentLocation + (PlatformVelocity * DeltaTime);
+                            SetActorLocation(CurrentLocation);
+                        }
+                    }
+                    
+                    void AMovingPlatform::RotatePlatform(float DeltaTime)
+                    {
+                        AddActorLocalRotation(RotationVelocity * DeltaTime);
+                    }
+                    
+                    bool AMovingPlatform::ShouldPlatformReturn() const
+                    {
+                        return GetDistanceMoved() > MoveDistance;
+                    }
+                    
+                    float AMovingPlatform::GetDistanceMoved() const
+                    {
+                        return FVector::Dist(StartLocation, GetActorLocation());
+                    }</code></pre>
+            </div>
+        </div>
+        <div class="modal" class="active" id="modal3">
+            <div class="modal-header">
+                <div class="title">Toon Tanks</div>
+                <a data-close-button><i class="fa-solid fa-xmark"></i></a>
+            </div>
+            <div class="modal-body">
+                <div class="center">
+                    <video src="videos/Toontanks.mp4" autoplay controls></video>
+                </div>
+                <p>
+                    In this game, you control a small toon-like tank and move around like a tank would to try and 
+                    shoot turrets, once all the turrets are destroyed you win the game, however the turrents lock 
+                    onto you and shoot back when you come within range. While developing this game I learnt how to 
+                    use a "fire" functionality with projectiles, add special effects like smoke, explosions and SFX 
+                    and add enemy AI controlled turrets to the game. With various issues I encountered while making 
+                    this game, one of them was the projectile getting stuck on the actor when clicking to fire. I found 
+                    that it is common practice to spawn projectiles with a bit of distance from the actor so they do 
+                    not get stuck. I find that experiencing and learning these kind of things helps me become a better 
+                    game developer. Below is the code for a projectile.
+                </p>
+                <pre><code>
+                    AProjectile::AProjectile()
+                    {
+                        // Set this actor to call Tick() every frame.  You can turn this off to improve performance 
+                        if you don't need it.
+                        PrimaryActorTick.bCanEverTick = false;
+
+                        ProjectileMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Projectile Mesh"));
+                        RootComponent = ProjectileMesh;
+
+                        ProjectileMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>
+                            (TEXT("Projectile Movement Component"));
+                        ProjectileMovementComponent->MaxSpeed = 1300.f;
+                        ProjectileMovementComponent->InitialSpeed = 1300.f;
+
+                        TrailParticles = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("Smoke Trail"));
+                        TrailParticles->SetupAttachment(RootComponent);
+                    }
+
+                    // Called when the game starts or when spawned
+                    void AProjectile::BeginPlay()
+                    {
+                        Super::BeginPlay();
+                        
+                        ProjectileMesh->OnComponentHit.AddDynamic(this, &AProjectile::OnHit);
+                        if (LaunchSound)
+                        {
+                            UGameplayStatics::PlaySoundAtLocation(this, LaunchSound, GetActorLocation());
+                        }
+                    }
+
+                    // Called every frame
+                    void AProjectile::Tick(float DeltaTime)
+                    {
+                        Super::Tick(DeltaTime);
+
+                    }
+
+                    void AProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* 
+                    OtherComp, FVector NormalImpulse, const FHitResult& Hit)
+                    {
+                        AActor* MyOwner = GetOwner();
+                        if (MyOwner == nullptr) 
+                        {
+                            Destroy();
+                            return;
+                        }
+
+                        AController* MyOwnerInstigator = MyOwner->GetInstigatorController();
+                        UClass* DamageTypeClass = UDamageType::StaticClass();
+
+                        if (OtherActor && OtherActor != this && OtherActor != MyOwner)
+                        {
+                            UGameplayStatics::ApplyDamage(OtherActor, Damage, MyOwnerInstigator, this, 
+                            DamageTypeClass);
+                            if (HitParticles)
+                            {
+                                UGameplayStatics::SpawnEmitterAtLocation(this, HitParticles, GetActorLocation(), 
+                                GetActorRotation());
+                            }
+                            if(HitSound)
+                            {
+                                UGameplayStatics::PlaySoundAtLocation(this, HitSound, GetActorLocation());
+                            }
+                            if (HitCameraShakeClass)
+                            {
+                                GetWorld()->GetFirstPlayerController()->ClientStartCameraShake(HitCameraShakeClass);
+                            }
+                        }
+                        Destroy();
+                    }
+                </code></pre>
+            </div>
+        </div>
+        <div id="overlay"></div>
+        <!--contact-->
+        <div id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="contact-left">
+                        <h1 class="sub-title">Contact Me</h1>
+                        <p><i class="fa-solid fa-paper-plane"></i> thesaurav@icloud.com</p>
+                        <p><i class="fa-solid fa-phone"></i> 07598459780</p>
+                        <div class="social-icons">
+                            <!--<a href=""><i class="fa-brands fa-facebook"></i></a>
+                            <a href=""><i class="fa-brands fa-twitter"></i></a>-->
+                            <a href="https://www.linkedin.com/in/sksharma97/"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href=""><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                        <a href="cv/saurav CV 30th July.pdf" download class="btn btn2">Download CV</a>
+                    </div>
+                    <div class="contact-right">
+                        <form name="submit-to-google-sheet">
+                            <input type="text" name="Name" placeholder="Your Name" required>
+                            <input type="email" name="Email" placeholder="Your Email" required>
+                            <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                            <button type="submit" class="btn btn2">Submit</button>
+                        </form>
+                        <span id="msg"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Copyright © Saurav.</p>
+            </div>
+        </div>
+
+
+
+        <script>
+
+            var tablinks = document.getElementsByClassName("tab-links");
+            var tabcontents = document.getElementsByClassName("tab-contents");
+
+            function opentab(tabname){
+                for(tablink of tablinks){
+                    tablink.classList.remove("active-link");
+                }
+                for(tabcontent of tabcontents){
+                    tabcontent.classList.remove("active-tab");
+                }
+                event.currentTarget.classList.add("active-link");
+                document.getElementById(tabname).classList.add("active-tab");
+            }
+
+        </script>
+        <script>
+            const openModalButtons = document.querySelectorAll('[data-modal-target]')
+            const closeModalButtons = document.querySelectorAll('[data-close-button]')
+            const overlay = document.getElementById('overlay')
+
+            openModalButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const modal = document.querySelector(button.dataset.modalTarget)
+                    openModal(modal) 
+                })
+            })
+
+            overlay.addEventListener('click', () => {
+                const modals = document.querySelectorAll('.modal.active')
+                modals.forEach(modal => {
+                    closeModal(modal)
+                })
+            })
+
+            closeModalButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const modal = button.closest('.modal')
+                    closeModal(modal) 
+                })
+            })
+
+            function openModal(modal) {
+                if (modal == null) return
+                modal.classList.add('active')
+                overlay.classList.add('active')
+            }
+            function closeModal(modal) {
+                if (modal == null) return
+                modal.classList.remove('active')
+                overlay.classList.remove('active')
+            }
+        </script>
+
+        <script>
+            var sidemenu = document.getElementById("sidemenu");
+
+            function openmenu(){
+                sidemenu.style.right = "0";
+            }
+            function closemenu(){
+                sidemenu.style.right = "-200px";
+            }
+        </script>
+
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzxrdAvEfRZupJbHhNf1wkrVqucIJjLyMEVgOwMD2nEeZ4tWj0eD-mIesObTpr45DsN/exec'
+            const form = document.forms['submit-to-google-sheet']
+            const msg = document.getElementById("msg")
+
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    msg.innerHTML = "Message sent successfully"
+                    setTimeout(function(){
+                        msg.innerHTML = ""
+                    },5000)
+                    form.reset()
+                })
+                .catch(error => console.error('Error!', error.message))
+            })
+        </script>
+
+    </body>
+</html>
