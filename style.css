@@ -296,7 +296,11 @@ nav ul li a:hover::after{
     padding: 15px 50px;
     align-items: center;
 }
-video {
+.video {
+    width: 80%;
+    padding-bottom: 15px;
+}
+.iframe {
     width: 80%;
     padding-bottom: 15px;
 }
@@ -490,6 +494,9 @@ nav .fa-solid{
     }
 
     video, .modal img {
+        width: 95%;  /* Media elements almost full width for better visibility */
+    }
+    iframe {
         width: 95%;  /* Media elements almost full width for better visibility */
     }
 }
