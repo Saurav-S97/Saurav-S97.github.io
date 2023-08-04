@@ -296,13 +296,13 @@ nav ul li a:hover::after{
     padding: 15px 50px;
     align-items: center;
 }
-iframe {
+video {
     padding-bottom: 15px;
 }
-.dimensions{
+/*.dimensions{
     width: 725px;
     height: 422px;
-}
+}*/
 .modal img{
     width: 80%;
     /*transition:transform 0.25s ease;*/
@@ -495,10 +495,10 @@ nav .fa-solid{
     video, .modal img {
         width: 95%;  /* Media elements almost full width for better visibility */
     }
-    .dimensions {
+    /*.dimensions {
         width: 90%;
         height: 100%;
-    }
+    }*/
 }
 #msg{
     color: #61b752;
