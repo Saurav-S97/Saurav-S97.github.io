@@ -495,9 +495,6 @@ nav .fa-solid{
     video, .modal img {
         width: 95%;  /* Media elements almost full width for better visibility */
     }
-    .playbutton::poster {
-        content: url('images/play-button.png');
-    }
 }
 #msg{
     color: #61b752;
