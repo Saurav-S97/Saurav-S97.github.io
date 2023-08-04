@@ -495,7 +495,7 @@ nav .fa-solid{
     video, .modal img {
         width: 95%;
         height: auto; /* This ensures the aspect ratio is maintained */
-        display:inline-block; /* Ensure it behaves as a block-level element */
+        display: block; /* Ensure it behaves as a block-level element */
         margin: 0 auto;  /* Media elements almost full width for better visibility */
     }
     /*.dimensions {
