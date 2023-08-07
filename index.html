@@ -123,7 +123,7 @@
                         <img src="images/BLOQI_onWhiteUpscaled.jpeg">
                         <div class="layer">
                             <h3>Bloqi</h3>
-                            <p>UI development of a social platform bringing a Twitter-like experience to the TikTok generation in university.</p>
+                            <p>Figma/Flutter/Dart: UI development of a social platform bringing a Twitter-like experience to the TikTok generation in university.</p>
                             <a data-modal-target="#modal4"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                         </div>
                     </div>
@@ -131,7 +131,7 @@
                         <img src="images/shooterthumbnail.png">
                         <div class="layer">
                             <h3>Simple Shooter</h3>
-                            <p>Basic 3rd person shooter game developed to improve my skills in animation, AI enemies and movement.</p>
+                            <p>Unreal Engine 5: Basic 3rd person shooter game developed to improve my skills in animation, AI enemies and character movement.</p>
                             <a data-modal-target="#modal"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                         </div>
                     </div>
@@ -139,8 +139,8 @@
                         <img src="images/crypt.png">
                         <div class="layer">
                             <h3>Crypt Raider</h3>
-                            <p>Puzzle game where the player must steal a valuable statue from a crypt and escape. Helped with my 
-                                modular level design and debugging skills as well as lighting with Lumen.
+                            <p>Unreal Engine 5: Puzzle game where the player must steal a valuable statue from a crypt and escape. Helped with my 
+                                modular level design and debugging skills as well as lighting using Lumen.
                             </p>
                             <a data-modal-target="#modal1"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                         </div>
@@ -150,7 +150,7 @@
                         <div class="layer">
                             <h3>Obstacle Assault</h3>
                             <p>
-                                This 3rd person obstacle course is the first game I've created that introduced me to many of the 
+                                Unreal Engine 5: This 3rd person obstacle course is the first game I created that introduced me to many of the 
                                 fundamentals in game development, level design and C++ game programming.
                             </p>
                             <a data-modal-target="#modal2"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
@@ -161,8 +161,7 @@
                         <div class="layer">
                             <h3>Toon Tanks</h3>
                             <p>
-                                Tank shooter game that helped me bountifully in the C++ side of things when it comes to creating 
-                                games.
+                                Unreal Engine 5: Tank shooter game that helped me bountifully in the C++ side of game development.
                             </p>
                             <a data-modal-target="#modal3"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                         </div>
@@ -178,8 +177,8 @@
             </div>
             <div class="modal-body">
                 <div class="center">
-                    <video width="100%" controls preload="auto" muted>
-                        <source src="https://drive.google.com/uc?id=1yQsm0-ys-ZSkdcYB-gjQjliTuYUVl_Z3&export=download" type="video/mp4">
+                    <video width="29%" preload="auto" controls muted>
+                        <source src="https://drive.google.com/uc?id=1OQqek-9GIcpWZqVjjjudo2Co1frnaRSX&export=download" type="video/mp4">
                     </video>
                 </div>
                 <p>
@@ -189,106 +188,6 @@
                     continue to perfect it, taking into account feedback at all times, and revising accordingly. Below is a sample 
                     of code for the bloqi button.
                 </p>
-                <pre><code>
-                    void AShooterCharacter::BeginPlay()
-                    {
-                        Super::BeginPlay();
-                    
-                        Health = MaxHealth;
-                    
-                        Gun = GetWorld()->SpawnActor<AGun>(GunClass);
-                        GetMesh()->HideBoneByName(TEXT("weapon_r"), EPhysBodyOp::PBO_None);
-                        Gun->AttachToComponent(GetMesh(), 
-                        FAttachmentTransformRules::KeepRelativeTransform, TEXT("WeaponSocket"));
-                        Gun->SetOwner(this);
-                    }
-                    
-                    bool AShooterCharacter::IsDead() const
-                    {
-                        return Health <= 0;
-                    }
-                    
-                    float AShooterCharacter::GetHealthPercent() const
-                    {
-                        return Health / MaxHealth;
-                    }
-                    
-                    // Called every frame
-                    void AShooterCharacter::Tick(float DeltaTime)
-                    {
-                        Super::Tick(DeltaTime);
-                    
-                    }
-                    
-                    // Called to bind functionality to input
-                    void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-                    {
-                        Super::SetupPlayerInputComponent(PlayerInputComponent);
-                    
-                        PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &AShooterCharacter::MoveForward);
-                        PlayerInputComponent->BindAxis(TEXT("LookUp"), this, &APawn::AddControllerPitchInput);
-                        PlayerInputComponent->BindAxis(TEXT("LookUpRate"), this, &AShooterCharacter::LookUpRate);
-                        PlayerInputComponent->BindAxis(TEXT("MoveRight"), this, &AShooterCharacter::MoveRight);
-                        PlayerInputComponent->BindAxis(TEXT("LookRight"), this, &APawn::AddControllerYawInput);
-                        PlayerInputComponent->BindAxis(TEXT("LookRightRate"), this, &AShooterCharacter::LookRightRate);
-                        PlayerInputComponent->BindAction(TEXT("Jump"),EInputEvent::IE_Pressed, this, &ACharacter::Jump);
-                        PlayerInputComponent->BindAction(TEXT("Shoot"),EInputEvent::IE_Pressed, this, 
-                        &AShooterCharacter::Shoot);
-                    }
-                    
-                    float AShooterCharacter::TakeDamage(float DamageAmount, struct FDamageEvent const &DamageEvent, 
-                    class AController *EventInstigator, AActor *DamageCauser)
-                    {
-                        float DamageToApply = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, 
-                        DamageCauser);
-                        DamageToApply = FMath::Min(Health, DamageToApply);
-                        Health -= DamageToApply;
-                        UE_LOG(LogTemp, Warning, TEXT("Health left %f"), Health);
-                        
-                        if (IsDead())
-                        {
-                            ASimpleShooterGameModeBase* GameMode = GetWorld()->GetAuthGameMode<ASimpleShooterGameModeBase>();
-                            if (GameMode != nullptr)
-                            {
-                                GameMode->PawnKilled(this);
-                            }
-                            DetachFromControllerPendingDestroy();
-                            GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
-                            
-                            
-                        }
-                        return DamageToApply;
-                    }
-                    
-                    void AShooterCharacter::MoveForward(float AxisValue)
-                    {
-                        AddMovementInput(GetActorForwardVector() * AxisValue);
-                    }
-                    
-                    /*void AShooterCharacter::LookUp(float AxisValue)
-                    {
-                        AddControllerPitchInput(AxisValue);
-                    }*/
-                    
-                    void AShooterCharacter::MoveRight(float AxisValue)
-                    {
-                        AddMovementInput(GetActorRightVector() * AxisValue);
-                    }
-                    
-                    void AShooterCharacter::LookUpRate(float AxisValue)
-                    {
-                        AddControllerPitchInput(AxisValue * RotationRate * GetWorld()->GetDeltaSeconds());
-                    }
-                    
-                    void AShooterCharacter::LookRightRate(float AxisValue)
-                    {
-                        AddControllerYawInput(AxisValue * RotationRate * GetWorld()->GetDeltaSeconds());
-                    }
-                    
-                    void AShooterCharacter::Shoot()
-                    {
-                        Gun->PullTrigger();
-                    }</code></pre>
             </div>
         </div>
         <div class="modal" class="active" id="modal">
@@ -603,7 +502,7 @@
             </div>
             <div class="modal-body">
                 <div class="center">
-                    <video width="100%" controls muted>
+                    <video width="100%" height="100%" muted>
                         <source src="https://drive.google.com/uc?id=1cnzGHTMsqPR8YpDBJ3FRzZ5BooNrmV4M&export=download" type="video/mp4">
                     </video>
                 </div>
