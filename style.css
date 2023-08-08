@@ -311,6 +311,12 @@ video {
     padding: 20px 0px;
     padding-top: 0;
 }
+.link{
+    color: #ff004f;
+}
+p{
+    padding-top: 15px;
+}
 /*img:hover {
     -webkit-transform:scale(1.5);
     transform:scale(1.5);
