@@ -51,7 +51,8 @@
                             from tapping heads for an ace on VALORANT to someone else". <br><br>Well, not too long ago that thought DID 
                             cross my mind and it just clicked. From a passion for video games spawned a passion for MAKING video 
                             games.<br><br>On the flip side, I like to go to the gym and listen to trap/metal style music like Scarlxrd
-                            (Often at the same time). If only I could combo them with gaming too...
+                            (Often at the same time). If only I could combo them with gaming too...<br><br>(This website was made using 
+                            HTML,CSS and Javascript)
                         </p>
 
                         <div class="tab-titles">
@@ -61,7 +62,7 @@
                         </div>
                         <div class="tab-contents active-tab" id="skills">
                             <ul>
-                                <li><span>Game Development</span><br>Programming game logic and mechanics using C++ and Unreal Engine 5</li>
+                                <li><span>Game Development</span><br>Programming game logic and mechanics using C++ and Unreal Engine 5 as well as C# and Unity</li>
                                 <li><span>UX/UI</span><br>Profficient at designing and implementing UX/UI using figma and Flutter/Dart 
                                     for IOS and Android mobile applications</li>
                                 <li><span>Web Development</span><br>Web app development using HTML, CSS and Javascript</li>
@@ -76,6 +77,7 @@
                         </div>
                         <div class="tab-contents" id="education">
                             <ul>
+                                <li><span>2023</span><br>Game Development Bootcamp with Playback Studio</li>
                                 <li><span>2022</span><br>UE5 C++ Developer course from Udemy/Epic Games</li>
                                 <li><span>2022</span><br>CS50x Computer Science course from Harvard University </li>
                                 <li><span>2020</span><br>BEng from University of Portsmouth</li>
@@ -119,6 +121,14 @@
             <div class="container">
                 <h1 class="sub-title">My Work</h1>
                 <div class="work-list">
+                    <div class="work">
+                        <img src="images/DemonCatThumbnail.png">
+                        <div class="layer">
+                            <h3>Demon Cat Adventures</h3>
+                            <p>Unity: Full game including UI/UX elements, animations, and gameplay mechanics. Helped with my undersanding of the whole game making process, such as level design.</p>
+                            <a data-modal-target="#modal5"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
                     <div class="work">
                         <img src="images/BLOQI_onWhiteUpscaled.jpeg">
                         <div class="layer">
@@ -170,6 +180,158 @@
                 <!--<a href="#" class="btn">See More</a>-->
             </div>
         <!--portfolio popups-->
+        <div class="modal" class="active" id="modal5">
+            <div class="modal-header">
+                <div class="title">Demon Cat Adventures</div>
+                <a data-close-button><i class="fa-solid fa-xmark"></i></a>
+            </div>
+            <div class="modal-body">
+                <div class="center">
+                    <video width="100%" controls muted>
+                        <source src="https://drive.google.com/uc?id=1E5ZVgvI5FsNGDF0TScYo_ZUh9ioymgsU&export=download" type="video/mp4">
+                    </video>
+                </div>
+                <a class="link" href="https://drive.google.com/file/d/1E5ZVgvI5FsNGDF0TScYo_ZUh9ioymgsU/view?usp=drive_link">Click here if video does not play.</a>
+                <p>
+                    During the Game Development Bootcamp with Playback Studio, we were tasked with making our own complete game. through trial and 
+                    error and researching specific features or code I wanted for my game, I became very comfortable with Unity and C# and I believe 
+                    this method of teaching was much more valuable than doing a course or traditional learning. Such features I explored in this game 
+                    are: AI enemies, cliff detection, player attack detection, parallax background, particle system, health and damage for characters, 
+                    player movement, character animations and rigging characters. Below is the code for my "damageable" script, which enables my player 
+                    and enemies to take damage to their health when hit.
+                </p>
+                <pre><code> 
+                    public class Damageable : MonoBehaviour
+                    {
+                        public UnityEvent<int, Vector2> damageableHit;
+                        public UnityEvent damageableDeath;
+                        public UnityEvent<int, int> healthChanged;
+                        public UIManager gameManager;
+                        Animator animator;
+                        [SerializeField]
+                        private int _maxHealth = 100;
+                        private bool isDead;
+
+                        public int MaxHealth
+                        {
+                            get
+                            {
+                                return _maxHealth;
+                            }
+                            set
+                            {
+                                _maxHealth = value;
+                            }
+                        }
+
+                        [SerializeField]
+                        private int _health = 100;
+                        public int Health
+                        {
+                            get
+                            {
+                                return _health;
+                            }
+                            set
+                            {
+                                _health = value;
+                                healthChanged?.Invoke(_health, MaxHealth);
+                                if(_health <= 0 && !isDead)
+                                {
+                                    isDead = true;
+                                    IsAlive = false;
+                                    gameManager.gameOver();
+                                }
+                            }
+                        }
+
+                        [SerializeField]
+                        private bool _isAlive = true;
+                        [SerializeField]
+                        private bool isInvincible = false;
+
+                        private float timeSinceHit = 0;
+                        public float invincibilityTime = 0.25f;
+
+                        public float lockTime = 0.5f;
+
+                        public bool IsAlive { 
+                            get
+                            {
+                                return _isAlive;
+                            }
+                            set
+                            {
+                                _isAlive = value;
+                                animator.SetBool("isAlive", value);
+                                Debug.Log("IsAlive set " + value);
+
+                                if(value == false)
+                                {
+                                    damageableDeath.Invoke();
+                                }
+                            } 
+                        }
+
+                        public bool LockVelocity { 
+                            get 
+                            {
+                                return animator.GetBool("lockVelocity");
+                            }
+                            set{
+                                animator.SetBool("lockVelocity", value);
+                            } 
+                        }
+
+                        private void Awake()
+                        {
+                            animator = GetComponent<Animator>();
+                        }
+
+                        private void Update()
+                        {
+                            if(isInvincible)
+                            {
+                                if(timeSinceHit > invincibilityTime)
+                                {
+                                    // Remove invincibility
+                                    isInvincible = false;
+                                    timeSinceHit = 0;
+                                }
+                                timeSinceHit +=Time.deltaTime;
+                            }
+                        }
+
+                        public bool Hit(int damage, Vector2 knockback)
+                        {
+                            if(IsAlive && !isInvincible)
+                            {
+                                Health -= damage;
+                                isInvincible = true;
+                                // Notify other subscribed components that the damageable was hit to handle the knockback
+                                animator.SetTrigger("hit");
+                                LockVelocity = true;
+                                damageableHit?.Invoke(damage, knockback);
+                                CharacterEvents.characterDamaged.Invoke(gameObject, damage);
+
+                                return true;
+                            }
+                            return false;
+                        }
+                        public bool Heal(int healthRestore)
+                        {
+                            if(IsAlive && Health < MaxHealth)
+                            {
+                                int maxHeal = Mathf.Max(MaxHealth - Health, 0);
+                                int actualHeal = Mathf.Min(maxHeal, healthRestore);
+                                Health += actualHeal;
+                                CharacterEvents.characterHealed(gameObject, actualHeal);
+                                return true;
+                            }
+                            return false;
+                    }</code></pre>
+            </div>
+        </div>
         <div class="modal" class="active" id="modal4">
             <div class="modal-header">
                 <div class="title">Bloqi</div>
@@ -439,7 +601,7 @@
                 <p>
                     Here I learnt the basics of developing a game using blueprints and C++. I practiced functions, 
                     variables, branches in C++ and creating C++ Actors. I also, learnt how to link Blueprint to C++. 
-                    Other than that I a lot of fun designing an obstacle course for my character in this game. Below is 
+                    Other than that I had a lot of fun designing an obstacle course for my character in this game. Below is 
                     the code for a moving platform.
                 </p>
                 <pre><code> 
