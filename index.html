@@ -123,6 +123,14 @@
                 <h1 class="sub-title">My Work</h1>
                 <div class="work-list">
                     <div class="work">
+                        <img src="images/SoColdBarnThumbnail.png">
+                        <div class="layer">
+                            <h3>So Cold Barn</h3>
+                            <p>Unity: Box-pushing puzzle game made within a team as part of indie game studio - Nerd Monkeys. My focus was on gameplay programming, UI and debugging.</p>
+                            <a data-modal-target="#modal6"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <div class="work">
                         <img src="images/DemonCatThumbnail.png">
                         <div class="layer">
                             <h3>Demon Cat Adventures</h3>
@@ -181,6 +189,81 @@
                 <!--<a href="#" class="btn">See More</a>-->
             </div>
         <!--portfolio popups-->
+        <div class="modal" class="active" id="modal6">
+            <div class="modal-header">
+                <div class="title">So Cold Barn</div>
+                <a data-close-button><i class="fa-solid fa-xmark"></i></a>
+            </div>
+            <div class="modal-body">
+                <div class="center">
+                    <video width="100%" controls muted>
+                        <source src="https://drive.google.com/uc?id=115VotZ9fs8UGTm7gEnXEIDo6vrOMbw7P&export=download" type="video/mp4">
+                    </video>
+                </div>
+                <a class="link" href="https://drive.google.com/file/d/115VotZ9fs8UGTm7gEnXEIDo6vrOMbw7P/view?usp=drive_link">Click here if video does not play.</a>
+                <p>
+                    While working as gameplay programmer at Nerd Monkeys I worked on several projects, one being So Cold Barn. 
+                    During this time I was introduced to many gameplay programming concepts such as how C# events give
+                    more control and allow multiple functions to be called from different scripts. I was also able to improve my 
+                    teamwork skills and brainstorm with other programmers (some more experienced than me) how we can turn 
+                    requested features into fruition, mainly via scripting. Along the way, I improved my debugging skills within 
+                    code and game engine integration. This required a deep understanding of the scripts (including ones I did not 
+                    work on) in order to find the issue and implement a solution. I enjoyed the creativity from working on gameplay 
+                    features as well finding creative solutions to bugs. Here is a script I made to spawn a number of consumables
+                    (pills in this case) into a level based on the previous level's completion percentage.
+                </p>
+                <pre><code>
+                    public class FloorPillActivation : MonoBehaviour
+                    {
+                        [SerializeField] private GameState _gameState;
+                        [SerializeField] private GameInfo _gameInfo;
+
+                        void Start()
+                        {
+                        
+                            ActivatePillsBasedOnCompletion();
+                        }
+
+                        private void ActivatePillsBasedOnCompletion()
+                        {
+                            GameObject [] allPills = GameObject.FindGameObjectsWithTag("Pill");
+                            Debug.Log("Total pills: " + allPills.Length);
+                            foreach(GameObject pill in allPills)
+                            {
+                                pill.SetActive(false);
+                            }
+
+                            int currentLevelIndex = _gameInfo.CurrentLevel - 1;
+                            float previousLevelCompletion = _gameState.FloorCompletionPercentages[currentLevelIndex - 1];
+                            
+                            float targetPercentage = previousLevelCompletion / 100f;
+                            Debug.Log("Target percentage: " + targetPercentage);
+                            
+
+                            int numPillsToActivate = Mathf.RoundToInt(targetPercentage * allPills.Length); 
+
+                            if (numPillsToActivate > allPills.Length) 
+                            {
+                                numPillsToActivate = allPills.Length;
+                            }
+
+                            List<int> activatedPillIndices = new List<int>(); 
+
+                            while (activatedPillIndices.Count < numPillsToActivate)
+                            {
+                                int randomIndex = Random.Range(0, allPills.Length);
+                                if (!activatedPillIndices.Contains(randomIndex)) 
+                                {
+                                    activatedPillIndices.Add(randomIndex);
+                                    allPills[randomIndex].SetActive(true);
+                                    Debug.Log("Selected index: " + randomIndex + ", Activated pills: " + activatedPillIndices.Count);
+                                }
+
+                            }
+                        }
+                    }</code></pre>
+            </div>
+        </div>
         <div class="modal" class="active" id="modal5">
             <div class="modal-header">
                 <div class="title">Demon Cat Adventures</div>
@@ -195,7 +278,7 @@
                 <a class="link" href="https://drive.google.com/file/d/1E5ZVgvI5FsNGDF0TScYo_ZUh9ioymgsU/view?usp=drive_link">Click here if video does not play.</a>
                 <p>
                     During the Game Development Bootcamp with Playback Studio, we were tasked with making our own complete game. Through trial and 
-                    error and researching specific features or code I wanted for my game, I became very comfortable with Unity and C# and I believe 
+                    error and researching specific features I wanted for my game, I became very comfortable with Unity and C# and I believe 
                     this method of learning was much more valuable than doing a course or traditional learning. Such features I explored in this game 
                     were: AI enemies, cliff detection, player attack detection, parallax background, particle system, health and damage for characters, 
                     player movement, character animations and rigging characters. Below is the C# code for my "damageable" script, which enables my player 
@@ -767,7 +850,7 @@
                     <div class="contact-left">
                         <h1 class="sub-title">Contact Me</h1>
                         <p><i class="fa-solid fa-paper-plane"></i> thesaurav@icloud.com</p>
-                        <p><i class="fa-solid fa-phone"></i> 07598459780</p>
+                        <p><i class="fa-solid fa-phone"></i> +44 7598459780</p>
                         <div class="social-icons">
                             <!--<a href=""><i class="fa-brands fa-facebook"></i></a>
                             <a href=""><i class="fa-brands fa-twitter"></i></a>-->
